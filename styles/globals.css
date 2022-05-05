@@ -1,7 +1,5 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -11,6 +9,40 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(gray, lightgray);
+  padding: 1em;
+  /* border: 3px solid red; */
+}
+
+.main {
+  flex-grow: 1;
+}
+
+/* .show_img {
+  animation: grow 2s forwards;
+}
+
+@keyframes grow {
+  0% {
+    clip-path: circle(0%);
+  }
+  100% {
+    clip-path: circle(100%);
+  }
+} */

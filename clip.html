@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      section {
+        width: 100%;
+        display: flex;
+        /* border: 2px solid rgb(165, 66, 66); */
+        height: 400px;
+      }
+
+      /* .image-col {
+        flex: 1;
+        height: 100%;
+        border: 2px solid blue;
+    } */
+
+      .img {
+        margin: 0;
+        flex-basis: 60%;
+        object-fit: cover;
+        clip-path: polygon(
+          20% 0%,
+          100% 0%,
+          80% 50%,
+          100% 100%,
+          20% 100%,
+          0% 50%
+        );
+      }
+
+      .img:nth-child(2) {
+        margin-left: -100px;
+      }
+
+      nav {
+        transform: translateY(50px);
+        height: 50px;
+        /* border: 1px solid black; */
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+      }
+
+      .nav-item {
+        list-style: none;
+        font-size: 30px;
+        flex: 1;
+        /* border: 2px solid black; */
+        height: 100%;
+        background: rgb(108, 108, 233);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease;
+        border: 0px;
+      }
+
+      .nav-item:hover {
+        border-top: 6px solid white;
+        border-bottom: 6px solid white;
+        background: rgb(33, 33, 224);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Clip Art Practice</h1>
+
+    <div class="inner_output"></div>
+
+    <section>
+      <img
+        class="img"
+        src="https://cdn.theatlantic.com/thumbor/0D_Q0kQchsVuyKxZ_RK86cDzSoc=/604x37:2808x1690/1200x900/media/img/2015/09/CULT_Rich_Honnold_Opener_HP/original.jpg?"
+        alt="img"
+      />
+      <img
+        class="img"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQDyDNH9NNXAifuacFHIQL9vz2NvvLWfzFGg&usqp=CAU"
+        alt="img"
+      />
+    </section>
+
+    <!-- <nav>
+      <li class="nav-item">Page</li>
+      <li class="nav-item">About</li>
+      <li class="nav-item">Link</li>
+      <li class="nav-item">Contact</li>
+    </nav> -->
+
+    <button onclick="hello()">Debounce</button>
+    <h3 class="output"></h3>
+
+    <h3 class="buffer-code"></h3>
+
+    <script>
+      let buff = new Buffer.from("Goodnight Brat");
+
+      console.log(buff);
+      function sayOutput(name) {
+        console.log("sayoutput fired!", name);
+        document.querySelector(".output").textContent = this.msg + " " + name;
+      }
+
+      function hello() {
+        console.log("hello there weirdo");
+      }
+
+      // function debounce(cb, timer) {
+      //   let isSet;
+      //   console.log("hello!!!");
+      //   return function () {
+      //     isSet && clearTimeout(isSet);
+      //     console.log("hello?");
+      //     isSet = setTimeout(() => {
+      //       cb.apply({ msg: "here is your message you jackass" }, arguments);
+      //     }, timer);
+      //   };
+      // }
+
+      // let my_debounce = debounce(sayOutput, 3000);
+
+      // document.querySelector("button").onclick = () => {
+      //   console.log("fx fired!");
+      //   my_debounce("brat", "x", "Y", "z");
+      // };
+
+      function debounce(cb, timer) {
+        let isTimeout;
+        return function () {
+          isTimeout && clearTimeout(isTimeout);
+          isTimeout = setTimeout(() => {
+            console.log(arguments);
+            console.log(arguments[2]);
+            cb.apply({ msg: "here is your message " }, arguments);
+          }, timer);
+        };
+      }
+
+      const my_debounce = debounce(sayOutput, 2000);
+    </script>
+  </body>
+</html>

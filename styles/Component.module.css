@@ -1,0 +1,16 @@
+.header {
+  text-align: center;
+  /* height: 15vh; */
+  min-height: 120px;
+}
+
+.header_h1 {
+  letter-spacing: 10px;
+}
+
+.footer {
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
